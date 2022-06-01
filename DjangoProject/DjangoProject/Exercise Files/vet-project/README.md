@@ -8,6 +8,7 @@ python 3.8.2
 
 django 3.0.3
 
+venv
 
 ## Installation
 
@@ -28,11 +29,15 @@ py -m pip install Django
 # colored terminal output
 py -m pip install colorama
 
+# activate the virtual env
+. .\Activate.ps1
+
 ```
 
 ## Usage
 
 ```python
+python manage.py startapp adoptions
 ```
 
 ## Contributing
