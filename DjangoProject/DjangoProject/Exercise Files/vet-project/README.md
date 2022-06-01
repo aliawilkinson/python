@@ -34,10 +34,18 @@ py -m pip install colorama
 
 ```
 
+http://127.0.0.1:8000/
+
 ## Usage
 
 ```python
+# run the webserver
+cd 'C:\Users\awilkinson\python\DjangoProject\DjangoProject\Exercise Files\vet-project\Scripts\wisdompets'
+python manage.py runserver
+
+# start an app called adoptions
 python manage.py startapp adoptions
+
 ```
 
 ## Contributing
