@@ -8,13 +8,14 @@ python 3.8.2
 
 django 3.0.3
 
+venv
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install packages
 
 ```powershell
-
+# https://docs.djangoproject.com/en/4.0/howto/windows/
 # This will create a folder called ‘vet-project’ if it does not 
 # already exist and set up the virtual environment. 
 py -m venv vet-project
@@ -22,11 +23,21 @@ py -m venv vet-project
 # To activate the environment, run:
 .\vet-project\Scripts\activate.bat
 
+# Install Django into the virtual env, while venv is running:
+py -m pip install Django
+
+# colored terminal output
+py -m pip install colorama
+
+# activate the virtual env
+. .\Activate.ps1
+
 ```
 
 ## Usage
 
 ```python
+python manage.py startapp adoptions
 ```
 
 ## Contributing
