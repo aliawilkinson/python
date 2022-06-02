@@ -20,9 +20,6 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install package
 # already exist and set up the virtual environment. 
 py -m venv vet-project
 
-# To activate the environment, run:
-.\vet-project\Scripts\activate.bat
-
 # Install Django into the virtual env, while venv is running:
 py -m pip install Django
 
@@ -48,6 +45,9 @@ python manage.py startapp adoptions
 
 # to rotate the secret key 
 pip install django-rotate-secret-key
+
+# to add environment vars 
+pip install django-environ
 
 ```
 
