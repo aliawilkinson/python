@@ -46,6 +46,9 @@ python manage.py runserver
 # start an app called adoptions
 python manage.py startapp adoptions
 
+# to rotate the secret key 
+pip install django-rotate-secret-key
+
 ```
 
 ## Contributing
