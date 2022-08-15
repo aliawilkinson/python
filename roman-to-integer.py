@@ -30,6 +30,9 @@ class Solution:
 
         sum = 0
         i = len(s) - 1
+        if (s[0] == "M"):
+                sum += lookup[s[0]]
+                i-= 1
         while i >= 0:
             right_num = lookup[s[i]]
             if (i != 0):
@@ -41,13 +44,15 @@ class Solution:
             else:
                 sum += left_num + right_num
             i -= 2
+        print(sum)
         return sum
 
 
 sol1 = Solution()
-sol1.romanToInt("MCMXCIV")
-sol1.romanToInt("IV")
-
+# sol1.romanToInt("MCMXCIV")
+# sol1.romanToInt("IV")
+sol1.romanToInt("MCDLXXVI")
 
 # input "MCDLXXVI"
-# output 1676
+# 6 20 550 1100 = 1676 
+# 1000 400 
