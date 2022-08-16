@@ -20,18 +20,14 @@ class Solution:
             Output: [0]
         """
 
-        sorted_nums = sorted(nums)
-        if (sorted_nums[0] != 0):
-            return 0
-        missing_num = int()
-        for i in range(len(sorted_nums)-1):
-            if not (sorted_nums[i+1] == sorted_nums[i]+1):
-                if (sorted_nums[i] != sorted_nums[i+1]):
-                    missing_num = sorted_nums[i]+1
-                    break
-        if not (missing_num):
-            missing_num = sorted_nums[len(sorted_nums) - 1] + 1
-        return missing_num
+        # find sum of the full number list
+        # find sum of expected ideal list 
+        # multiple them by eachother, divide by 2
+        # will calculate the missing number
+        n = len(nums)
+        ideal_sum = n*(n+1)//2
+        actual_sum = sum(nums)
+        return ideal_sum - actual_sum
 
     def testMissingNum(self, nums=List[int], answer=[int]) -> bool:
         test_cases = {
@@ -52,7 +48,7 @@ class Solution:
                 failed+=1
                 print("Failed, code answer was: ", code_answer,
                       " right answer was ", right_answer)
-        print("Passed ", passed , " tests, Failed ", failed, " tests, success rate: ", (passed/passed+failed)*100, "%" )
+        print("Passed ", passed , " tests, Failed ", failed, " tests, success rate: ", (passed/(passed+failed))*100, "%" )
 
 
 missing_num = Solution()
