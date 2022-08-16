@@ -19,15 +19,10 @@ class Solution:
             Input: [1]
             Output: [0]
         """
-
-        # find sum of the full number list
-        # find sum of expected ideal list 
-        # multiple them by eachother, divide by 2
-        # will calculate the missing number
-        n = len(nums)
-        ideal_sum = n*(n+1)//2
+        list_len = len(nums)
+        expected_sum = list_len*(list_len+1)//2
         actual_sum = sum(nums)
-        return ideal_sum - actual_sum
+        return expected_sum-actual_sum
 
     def testMissingNum(self, nums=List[int], answer=[int]) -> bool:
         test_cases = {
