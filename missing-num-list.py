@@ -19,7 +19,6 @@ class Solution:
             Input: [1]
             Output: [0]
         """
-
         list_len = len(nums)
         expected_sum = list_len*(list_len+1)//2
         actual_sum = sum(nums)
@@ -44,7 +43,7 @@ class Solution:
                 failed+=1
                 print("Failed, code answer was: ", code_answer,
                       " right answer was ", right_answer)
-        print("Passed ", passed , " tests, Failed ", failed, " tests, success rate: ", (passed/passed+failed)*100, "%" )
+        print("Passed ", passed , " tests, Failed ", failed, " tests, success rate: ", (passed/(passed+failed))*100, "%" )
 
 
 missing_num = Solution()
