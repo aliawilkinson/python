@@ -16,10 +16,12 @@ class Solution:
         """
         # array solution
         answer = False
+        pairs = {}
         for i in range(len(nums)-1):
             if (nums[i] < target_sum):
-                paired_num = target_sum-nums[i]
-                if paired_num in nums:
+                paired_num = target_sum - nums[i]
+                pairs[nums[i]] = paired_num
+                if paired_num in pairs:
                     answer = True
                     break
         return answer
