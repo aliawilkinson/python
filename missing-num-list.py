@@ -20,18 +20,10 @@ class Solution:
             Output: [0]
         """
 
-        sorted_nums = sorted(nums)
-        if (sorted_nums[0] != 0):
-            return 0
-        missing_num = int()
-        for i in range(len(sorted_nums)-1):
-            if not (sorted_nums[i+1] == sorted_nums[i]+1):
-                if (sorted_nums[i] != sorted_nums[i+1]):
-                    missing_num = sorted_nums[i]+1
-                    break
-        if not (missing_num):
-            missing_num = sorted_nums[len(sorted_nums) - 1] + 1
-        return missing_num
+        list_len = len(nums)
+        expected_sum = list_len*(list_len+1)//2
+        actual_sum = sum(nums)
+        return expected_sum-actual_sum
 
     def testMissingNum(self, nums=List[int], answer=[int]) -> bool:
         test_cases = {
