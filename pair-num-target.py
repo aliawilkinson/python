@@ -14,11 +14,7 @@ class Solution:
             Output: True
             Why: 7,3 and 2,8 equal 10
         """
-        # look at ea. num in the array
-        # subtract the target sum
-        # get the pair for the number
-        # if the number is in the array, return the pair
-        pairs = {}
+        # array solution
         answer = False
         for i in range(len(nums)-1):
             if (nums[i] < target_sum):
