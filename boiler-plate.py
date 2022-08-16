@@ -10,14 +10,6 @@ class Solution:
         Examples:
             <Examples>
         """
-        answer = False
-        for i in range(len(nums)-1):
-            if (nums[i] < target_sum):
-                paired_num = target_sum-nums[i]
-                if paired_num in nums:
-                    answer = True
-                    break
-        return answer
 
     def testTask(self, nums=List[int], answer=[int]) -> bool:
         test_cases = {
