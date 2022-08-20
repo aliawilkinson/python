@@ -1,4 +1,4 @@
-import math
+
 
 class Solution:
     """
@@ -25,6 +25,16 @@ class Solution:
     Constraints:
     1 <= n <= 231 - 1
     """
+
+    def getSquaredVal(self,s:str)->int:
+        sum_power = 0
+        for i in range(len(s)):
+            digit = int(s[i])
+            sum_power += int(digit**2)
+        return sum_power
+
+
+
     def isHappy(self, n: int) -> bool:
         """
         answer = False
@@ -45,11 +55,8 @@ class Solution:
         """
         the_string = str(n)
         found_numbers = set()
-        sum_power = 0
         while True:
-            for i in range(len(the_string)):
-                digit = int(the_string[i])
-                sum_power += int(math.pow(digit,2))
+            sum_power = self.getSquaredVal(the_string)
                 
             if sum_power in found_numbers:
                 return False
@@ -59,7 +66,9 @@ class Solution:
             
             found_numbers.add(sum_power)
             the_string = str(sum_power)
-            sum_power = 0
+            
+
+
                 
     def testTask(self) -> bool:
         test_cases = {
