@@ -28,65 +28,62 @@ class Solution:
             store nonrepeating substring in list concurrent_substring 
             store longest substring in longest_substring
         """
-        # look at each character
-        # see if the current value is in the non repeating substring variable concurrent_substring
-        # if it is, prev. length of substrin is len
-        # else, add to string and keep evaluating
-        # if this substring is longer than last substring
-        # replace with longer substring
-        # else
-        # if at the end of the string, return substring
+        # least the answer can be is 0
         answer = 0
-        string_length = len(s)
-        if string_length == 1:
-            answer = 1
-        if string_length > 1:
-            longest_substring = 0
-            concurrent_substring = []
-            # for s[i] in s:
-            for i in range(string_length):
-                if not s[i] in concurrent_substring:
-                    concurrent_substring.append(s[i])
-                elif len(concurrent_substring) > longest_substring:
-                    longest_substring = len(concurrent_substring)
-                    concurrent_substring = [s[i]]
+        
+        # index_map stores the current index of a character
+        index_map = {}
 
-            if len(concurrent_substring) > longest_substring or longest_substring == 0:
-                answer = len(concurrent_substring)
-            else:
-                answer = longest_substring
+        # num of letters in the unique substr
+        count = 0
+        
+        # iterate
+        for i in range(len(s)):
+            # if the value is in the index map ex: a
+            if s[i] in index_map:
+                # take the count of char in the substr or the index of the letter
+                # we broke on, whatever is bigger
+                count = max(index_map[s[i]], count)
+
+            # compare the last recorded answer and the index we are on minus the num
+            # we have already found + 1 to account for str len
+            answer = max(answer, i - count + 1)
+
+            # set the char as the key and the count of substr it is
+            index_map[s[i]] = i + 1
+
         return answer
 
     def testTask(self):
         test_cases = {
-            # 0: {
-            #     "Input": "abcabcbb",
-            #     "Output": 3
-            # },
-            # 1: {
-            #     "Input": "bbbbb",
-            #     "Output": 1
-            # },
-            # 2: {
-            #     "Input": "pwwkew",
-            #     "Output": 3
-            # },
-            # 3: {
-            #     "Input": " ",
-            #     "Output": 1
-            # },
-            # 4: {
-            #     "Input": "",
-            #     "Output": 0
-            # },
-            # 5: {
-            #     "Input":"au",
-            #     "Output": 2
-            # },
-            # 6: {
-            #     "Input": "aab",
-            #     "Output": 2
-            # },
+            0: {
+                "Input": "abcabcbb",
+                "Output": 3
+            },
+            1: {
+                "Input": "bbbbb",
+                "Output": 1
+            },
+            2: {
+                "Input": "pwwkew",
+                "Output": 3
+            },
+            3: {
+                "Input": " ",
+                "Output": 1
+            },
+            4: {
+                "Input": "",
+                "Output": 0
+            },
+            5: {
+                "Input":"au",
+                "Output": 2
+            },
+            6: {
+                "Input": "aab",
+                "Output": 2
+            },
             7: {
                 "Input": "dvdf",
                 "Output": 3
@@ -94,16 +91,16 @@ class Solution:
         }
         passed = 0
         failed = 0
-        for i in test_cases:
-            code_answer = self.lengthOfLongestSubstring(test_cases[i]["Input"])
-            if test_cases[i]["Output"] == code_answer:
+        for count in test_cases:
+            code_answer = self.lengthOfLongestSubstring(test_cases[count]["Input"])
+            if test_cases[count]["Output"] == code_answer:
                 passed += 1
                 print("Success!, code answer was: ", code_answer,
-                      " right answer was: ", test_cases[i]["Output"])
+                      " right answer was: ", test_cases[count]["Output"])
             else:
                 failed += 1
                 print("Failed, code answer was: ", code_answer,
-                      " right answer was ", test_cases[i]["Output"])
+                      " right answer was ", test_cases[count]["Output"])
         print("Passed ", passed, " tests, Failed ", failed,
               " tests, success rate: ", (passed/(passed+failed))*100, "%")
 
