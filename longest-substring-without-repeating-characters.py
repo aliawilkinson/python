@@ -30,13 +30,13 @@ class Solution:
         """
         # least the answer can be is 0
         answer = 0
-        
+
         # index_map stores the current index of a character
         index_map = {}
 
         # num of letters in the unique substr
         count = 0
-        
+
         # iterate
         for i in range(len(s)):
             # if the value is in the index map ex: a
@@ -77,7 +77,7 @@ class Solution:
                 "Output": 0
             },
             5: {
-                "Input":"au",
+                "Input": "au",
                 "Output": 2
             },
             6: {
@@ -92,7 +92,8 @@ class Solution:
         passed = 0
         failed = 0
         for count in test_cases:
-            code_answer = self.lengthOfLongestSubstring(test_cases[count]["Input"])
+            code_answer = self.lengthOfLongestSubstring(
+                test_cases[count]["Input"])
             if test_cases[count]["Output"] == code_answer:
                 passed += 1
                 print("Success!, code answer was: ", code_answer,
