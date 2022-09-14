@@ -1,5 +1,3 @@
-import 
-
 class Solution:
     def maximumUnits(self, boxTypes: list[list[int]], truckSize: int) -> int:
         """
@@ -51,12 +49,8 @@ class Solution:
             box = boxTypes[i]  
             box_num = box[0]
             unit_num = box[1]
-            if (box_num <= boxes_remaining):
-                boxes_remaining -= box_num
-                units += box_num*unit_num
-            else:
-                units += boxes_remaining*unit_num
-                boxes_remaining = 0
+            units += min(box_num,boxes_remaining)*unit_num
+            boxes_remaining = boxes_remaining - min(box_num,boxes_remaining)
             i += 1
         return units
 
