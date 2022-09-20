@@ -1,13 +1,25 @@
 class Solution:
-    def number_of_islands(self, nums: list[int]) -> bool:
+    def fourSum(self, nums: list[int], target: int) -> list[list[int]]:
         """
-        Task: 
-        Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
-        An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+        Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
 
-        Examples:
-            <Examples>
+        0 <= a, b, c, d < n
+        a, b, c, and d are distinct.
+        nums[a] + nums[b] + nums[c] + nums[d] == target
+        You may return the answer in any order.
+
+
+
+        Example 1:
+
+        Input: nums = [1,0,-1,0,-2,2], target = 0
+        Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+        Example 2:
+
+        Input: nums = [2,2,2,2,2], target = 8
+        Output: [[2,2,2,2]]
         """
+        
 
     def testTask(self):
         test_cases = {
@@ -23,7 +35,7 @@ class Solution:
         passed = 0
         failed = 0
         for i in test_cases:
-            code_answer = self.task(test_cases[i]["Input"])
+            code_answer = self.fourSum(test_cases[i]["Input"])
             if test_cases[i] == code_answer:
                 passed += 1
                 print("Success!, code answer was: ", code_answer,
