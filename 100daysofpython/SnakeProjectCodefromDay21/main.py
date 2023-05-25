@@ -1,4 +1,5 @@
 from turtle import Screen
+from turtle import Turtle
 from snake import Snake
 from food import Food
 from scoreboard import Scoreboard

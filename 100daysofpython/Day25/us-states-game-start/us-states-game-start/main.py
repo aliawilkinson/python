@@ -2,7 +2,7 @@
 # then puts them on the map using the coordinates in the csv
 
 
-import turtle
+import turtle 
 import pandas as pd
 
 screen = turtle.Screen()
@@ -15,26 +15,40 @@ turtle.shape(img)
 # def get_mouse_click_error(x,y):
 #     print(x,y)
 
-# turtle.onscreenclick(get_mouse_click_error)
-# turtle.mainloop()
+# Turtle.onscreenclick(get_mouse_click_error)
+# Turtle.mainloop()
 
-counter = 0
+counter = int(0)
+correct_guesses = []
 
-answer_state = screen.textinput(title="Guess Another State Name", prompt="What is the name of another state?")
-print(answer_state)
+# answer_state = screen.textinput(title="Guess Another State Name", prompt="What is the name of another state?")
 
-guess = answer_state.title()
-print(guess)
 df = pd.read_csv("50_states.csv")
-guess_row = df[(df['state'] == guess)]
 
-if guess_row.empty == True:
-    print('Not found')
-else:
-    print('Found, now we plot')
-    counter += 1
-    # create new turtle, turtle go to 
-    xy = turtle.goto(guess_row.x, guess_row.y)
+
+while counter < 50:
+    answer_state = screen.textinput(title=f"{counter}/50 guessed", prompt="What is the name of another state?")    
+    guess = answer_state.title()
+    guess_row = df[(df['state'] == guess)]
+    x = int(guess_row.x)
+    y = int(guess_row.y)
+    if guess_row.empty == True:
+        print('Not found')
+    else:
+        counter += 1
+        correct_guesses.append(guess_row)
+        print(guess_row, counter)
+
+        # create new Turtle, Turtle go to 
+        state_turtle = turtle.Turtle()
+        state_turtle.hideturtle()
+        state_turtle.penup()
+        state_turtle.color("black")
+        state_turtle.goto((x,y))
+        state_turtle.write(guess_row.state.item())
+        state_turtle.st()
+        
+# if counter = 50, display you won message
 
     
 
